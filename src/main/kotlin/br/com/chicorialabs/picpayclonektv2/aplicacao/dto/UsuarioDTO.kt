@@ -1,5 +1,6 @@
-package br.com.chicorialabs.picpayclonektv2.modelo
+package br.com.chicorialabs.picpayclonektv2.aplicacao.dto
 
+import br.com.chicorialabs.picpayclonektv2.modelo.Usuario
 import java.time.LocalDate
 
 data class UsuarioDTO(
