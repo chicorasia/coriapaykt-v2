@@ -3,6 +3,7 @@ package br.com.chicorialabs.picpayclonektv2.aplicacao.service
 import br.com.chicorialabs.picpayclonektv2.infraestrutura.UsuarioRepository
 import br.com.chicorialabs.picpayclonektv2.modelo.Usuario
 import br.com.chicorialabs.picpayclonektv2.aplicacao.dto.UsuarioDTO
+import br.com.chicorialabs.picpayclonektv2.modelo.Transacao
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import kotlin.streams.toList
@@ -24,5 +25,29 @@ class UsuarioService(val usuarioRepository: UsuarioRepository) {
 	}
 
 	fun findUsuario(id: Long): Usuario? = usuarioRepository.findByIdOrNull(id)
+
+	fun validar(vararg usuario: Usuario?) {
+		usuario.forEach {
+			if(it == null){
+				throw IllegalArgumentException("Usuário inválido")
+			}
+		}
+	}
+
+	fun atualizarSaldo(transacao: Transacao, isCartaoDeCredito: Boolean) {
+		decrementarSaldo(transacao, isCartaoDeCredito)
+		incrementarSaldo(transacao)
+	}
+
+	private fun incrementarSaldo(transacao: Transacao) {
+		usuarioRepository.updateIncrementarSaldo(transacao.destino.login, transacao.valor)
+	}
+
+	private fun decrementarSaldo(transacao: Transacao, isCartaoDeCredito: Boolean) {
+		if(!isCartaoDeCredito){
+			usuarioRepository.updateDecrementarSaldo(transacao.origem.login, transacao.valor)
+		}
+	}
+
 
 }

@@ -1,14 +1,23 @@
 package br.com.chicorialabs.picpayclonektv2.modelo
 
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import br.com.chicorialabs.picpayclonektv2.aplicacao.dto.CartaoDeCreditoDTO
+import javax.persistence.*
 
 @Entity
 data class CartaoDeCredito(
-    @Id @GeneratedValue val id: Long,
 
-    val numero: String) {
+    @Id @GeneratedValue val id: Long,
+    @Enumerated(EnumType.STRING)
+    @Column val bandeira: BandeiraCartao,
+    @Column val numeroToken: String,
+    @ManyToOne val usuario: Usuario
+) {
+
+    fun toDto() : CartaoDeCreditoDTO = CartaoDeCreditoDTO(
+        id = id,
+        usuarioDTO = usuario.toDto(),
+        bandeira = bandeira,
+        numeroToken = numeroToken
+    )
 
 }
