@@ -22,9 +22,6 @@ class UsuarioResource(val service: UsuarioService) : ResourceBase<UsuarioDTO>() 
 		return usuario?.let { responderSuccessoComItem(it) } ?: responderItemNaoEncontrado()
 	}
 
-
-	// Métodos para teste da API:
-
 	@GetMapping("/contatos")
 	fun listarTodos() : ResponseEntity<List<UsuarioDTO>> {
 		val usuarios: List<UsuarioDTO>? = service.findUsuarios()
@@ -32,13 +29,15 @@ class UsuarioResource(val service: UsuarioService) : ResourceBase<UsuarioDTO>() 
 	}
 
 
+	// Métodos para teste da API:
+
+
 	@PostMapping
 	fun post(@RequestBody usuario: br.com.chicorialabs.picpayclonektv2.modelo.Usuario) {
 		service.postUsuario(usuario)
 	}
 
-//	@GetMapping("/usuarios/{id}")
-//	fun consultar(@PathVariable id: String) : Usuario? = service.findUsuario(id.toLong())
+
 
 
 

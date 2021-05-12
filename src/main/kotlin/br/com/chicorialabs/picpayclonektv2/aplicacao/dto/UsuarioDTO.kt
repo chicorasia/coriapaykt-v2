@@ -4,7 +4,7 @@ import br.com.chicorialabs.picpayclonektv2.modelo.Usuario
 import java.time.LocalDate
 
 data class UsuarioDTO(
-    val id: Long = 0,
+//    val id: Long = 0,
     val login: String = "",
     val email: String = "",
     val nomeCompleto: String ="",
@@ -16,7 +16,7 @@ data class UsuarioDTO(
 ) {
 
     fun toEntidade() : Usuario = Usuario(
-        id = id,
+//        id = id,
         login = login,
         email = email,
         nomeCompleto = nomeCompleto,

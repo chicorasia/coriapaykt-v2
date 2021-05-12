@@ -10,7 +10,6 @@ import javax.persistence.*
 @Entity
 @Table("USUARIOS")
 data class Usuario(
-    @Id @GeneratedValue (strategy=GenerationType.IDENTITY) var id: Long = 0,
     @Column val login: String = "",
     @Column val senha: String = "",
     @Column val email: String = "",
@@ -21,11 +20,11 @@ data class Usuario(
     @OneToMany val cartoesDeCredito: List<CartaoDeCredito> = arrayListOf(),
     @Column var ativo: Boolean = true,
     @Column var saldo: Double = 0.0
-    )
+    ) : EntidadeBase()
 
 {
     fun toDto() : UsuarioDTO = UsuarioDTO(
-        id = id,
+//        id = id,
         login = login,
         email = email,
         nomeCompleto = nomeCompleto,

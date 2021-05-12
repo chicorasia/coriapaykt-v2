@@ -49,8 +49,8 @@ class UsuarioService(val usuarioRepository: UsuarioRepository) {
 		}
 	}
 
-	fun consultar(login: String): UsuarioDTO? =
-		usuarioRepository.findByLogin(login)?.toDto()
+	fun consultar(login: String): UsuarioDTO =
+		usuarioRepository.findByLogin(login).toDto()
 
 	fun listar(login: String) : List<UsuarioDTO>  =
 		usuarioRepository.findAll().map {
