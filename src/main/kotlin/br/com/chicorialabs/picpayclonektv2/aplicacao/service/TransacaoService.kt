@@ -3,6 +3,8 @@ package br.com.chicorialabs.picpayclonektv2.aplicacao.service
 import br.com.chicorialabs.picpayclonektv2.aplicacao.dto.TransacaoDTO
 import br.com.chicorialabs.picpayclonektv2.infraestrutura.TransacaoRepository
 import br.com.chicorialabs.picpayclonektv2.modelo.Transacao
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 
 @Service
@@ -12,7 +14,8 @@ class TransacaoService(
     val usuarioService: UsuarioService
 ) {
 
-    fun listar(): List<Transacao> = transacaoRepository.findAll()
+    fun listar(paginacao: Pageable): Page<TransacaoDTO> = transacaoRepository
+        .findAll(paginacao).converterParaPageDTO()
 
 
     fun processar(transacaoDTO: TransacaoDTO) {
@@ -26,5 +29,10 @@ class TransacaoService(
         transacaoRepository.save(transacao)
     }
 
+    fun Page<Transacao>.converterParaPageDTO() : Page<TransacaoDTO> {
+        return this.map {
+            it.toDto()
+        }
+    }
 
 }
