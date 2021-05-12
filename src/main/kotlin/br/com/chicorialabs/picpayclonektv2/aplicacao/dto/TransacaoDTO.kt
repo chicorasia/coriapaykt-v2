@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 
 data class TransacaoDTO(
 
-    val id: Long = 0,
+//    val id: Long = 0,
     val codigo: String = "",
     val origem: UsuarioDTO = UsuarioDTO(),
     val destino: UsuarioDTO = UsuarioDTO(),
@@ -18,7 +18,7 @@ data class TransacaoDTO(
 ) {
 
     fun toEntidade() = Transacao(
-        id = id,
+//        id = id,
         codigo = codigo,
         origem = origem.toEntidade(),
         destino = destino.toEntidade(),
