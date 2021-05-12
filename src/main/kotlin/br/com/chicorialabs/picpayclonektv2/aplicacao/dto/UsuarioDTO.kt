@@ -9,7 +9,7 @@ data class UsuarioDTO(
     val email: String = "",
     val nomeCompleto: String ="",
     val cpf: String = "",
-    val dataNascimento: LocalDate = LocalDate.now(),
+    val dataNascimento: String = "",
     val numeroTelefone: String = "",
     var saldo: Double = 0.0
 

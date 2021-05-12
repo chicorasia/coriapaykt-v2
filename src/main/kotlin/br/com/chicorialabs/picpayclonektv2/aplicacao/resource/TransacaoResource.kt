@@ -7,26 +7,41 @@ import org.springframework.data.domain.Pageable
 import org.springframework.data.web.PageableDefault
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.util.UriComponentsBuilder
 
 @RestController
 @RequestMapping("/transacoes")
 class TransacaoResource(
-    val transacaoService: TransacaoService
-    ) : ResourceBase<TransacaoDTO>() {
+    val service: TransacaoService
+) : ResourceBase<TransacaoDTO>() {
 
 
-
+//    TODO: adicionar o login como filtro das transações
     @GetMapping
-    fun listar(@PageableDefault(page = 0, size = 20) paginacao: Pageable) : ResponseEntity<Page<TransacaoDTO>>? {
-        val transacoes: Page<TransacaoDTO>? = transacaoService.listar(paginacao)
+    fun listar(@PageableDefault(page = 0, size = 20) paginacao: Pageable)
+            : ResponseEntity<Page<TransacaoDTO>>? {
+        val transacoes: Page<TransacaoDTO>? = service.listar(paginacao)
         return transacoes?.let { responderListaDeItensPaginada(transacoes) }
     }
 
 
-
     @PostMapping
-    fun salvar(@RequestBody transacaoDTO: TransacaoDTO) {
-        transacaoService.salvar(transacaoDTO)
+    fun salvar(@RequestBody transacaoDTO: TransacaoDTO,
+               builder: UriComponentsBuilder): ResponseEntity<TransacaoDTO> {
+        val transacaoRetornoDto : TransacaoDTO = service.processar(transacaoDTO)
+        val path = "/transacoes/{codigo}"
+        return responderItemCriadoComURI(
+            transacaoDTO,
+            builder,
+            path,
+            transacaoRetornoDto.codigo
+        )
     }
+
+
+//    @PostMapping
+//    fun salvar(@RequestBody transacaoDTO: TransacaoDTO) {
+//        transacaoService.salvar(transacaoDTO)
+//    }
 
 }

@@ -15,7 +15,7 @@ data class Usuario(
     @Column val email: String = "",
     @Column val nomeCompleto: String = "",
     @Column val cpf: String = "",
-    @Column val dataNascimento: LocalDate = LocalDate.now(),
+    @Column val dataNascimento: String = "",
     @Column val numeroTelefone: String = "",
     @OneToMany val cartoesDeCredito: List<CartaoDeCredito> = arrayListOf(),
     @Column var ativo: Boolean = true,

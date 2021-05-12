@@ -18,21 +18,20 @@ class TransacaoService(
         .findAll(paginacao).converterParaPageDTO()
 
 
-    fun processar(transacaoDTO: TransacaoDTO) {
-        cartaoDeCreditoService.salvar(transacaoDTO.cartaoDeCredito)
-        usuarioService.atualizarSaldo(transacaoDTO.toEntidade(), transacaoDTO.isCartaoDeCredito)
+    fun processar(transacaoDTO: TransacaoDTO): TransacaoDTO {
+        val transacaoSalva = salvar(transacaoDTO)
+//        cartaoDeCreditoService.salvar(transacaoDTO.cartaoDeCredito)
+//        usuarioService.atualizarSaldo(transacaoDTO.toEntidade(), transacaoDTO.isCartaoDeCredito)
+        return transacaoSalva.toDto()
     }
 
-    fun salvar(transacaoDTO: TransacaoDTO) {
+    fun salvar(transacaoDTO: TransacaoDTO) : Transacao {
         val transacao = transacaoDTO.toEntidade()
-        usuarioService.validar(transacao.destino, transacao.origem)
-        transacaoRepository.save(transacao)
+//        usuarioService.validar(transacao.destino, transacao.origem)
+        return transacaoRepository.save(transacao)
     }
 
-    fun Page<Transacao>.converterParaPageDTO() : Page<TransacaoDTO> {
-        return this.map {
-            it.toDto()
-        }
-    }
+    fun Page<Transacao>.converterParaPageDTO() : Page<TransacaoDTO> =
+        this.map { it.toDto() }
 
 }

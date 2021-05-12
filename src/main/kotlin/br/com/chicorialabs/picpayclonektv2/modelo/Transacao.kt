@@ -9,10 +9,14 @@ import javax.persistence.*
 data class Transacao(
 
     @Column val codigo: String = "",
-    @ManyToOne val origem: Usuario = Usuario(),
-    @ManyToOne val destino: Usuario = Usuario(),
-    @Column(nullable = false) val dataHora: LocalDateTime = LocalDateTime.now(),
-    @Column(nullable = false) val valor: Double = 0.0
+    @ManyToOne(cascade = [CascadeType.PERSIST])
+    @JoinColumn(name = "TR_USUARIO_ORIGEM")
+    val origem: Usuario = Usuario(),
+    @ManyToOne(cascade = [CascadeType.PERSIST], fetch = FetchType.EAGER)
+    @JoinColumn(name = "TR_USUARIO_DESTINO")
+    val destino: Usuario = Usuario(),
+    @Column val dataHora: LocalDateTime = LocalDateTime.now(),
+    @Column val valor: Double = 0.0
 
 ) : EntidadeBase() {
 
