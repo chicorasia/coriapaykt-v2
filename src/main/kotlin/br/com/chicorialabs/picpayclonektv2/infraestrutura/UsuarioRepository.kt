@@ -17,4 +17,8 @@ interface UsuarioRepository : JpaRepository<Usuario, Long> {
     @Query("update Usuario u set u.saldo = u.saldo - ?2 where u.login = ?1")
     fun updateDecrementarSaldo(login: String, valor: Double)
 
+    fun findByLogin(login: String) : Usuario?
+
+
+
 }

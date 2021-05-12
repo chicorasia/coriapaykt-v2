@@ -8,9 +8,9 @@ data class CartaoDeCredito(
 
     @Id @GeneratedValue val id: Long,
     @Enumerated(EnumType.STRING)
-    @Column val bandeira: BandeiraCartao,
-    @Column val numeroToken: String,
-    @ManyToOne val usuario: Usuario
+    @Column val bandeira: BandeiraCartao = BandeiraCartao.VISA,
+    @Column val numeroToken: String = "",
+    @ManyToOne val usuario: Usuario = Usuario()
 ) {
 
     fun toDto() : CartaoDeCreditoDTO = CartaoDeCreditoDTO(

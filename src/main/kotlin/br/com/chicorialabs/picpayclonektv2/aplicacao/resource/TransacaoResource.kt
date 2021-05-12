@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/transacoes")
-class TransacaoResource(val transacaoService: TransacaoService) {
+class TransacaoResource(val transacaoService: TransacaoService) : ResourceBase<TransacaoDTO>() {
 
     @GetMapping
     fun listar() = transacaoService.listar()

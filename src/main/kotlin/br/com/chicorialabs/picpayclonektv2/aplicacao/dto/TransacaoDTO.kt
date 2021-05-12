@@ -6,12 +6,12 @@ import java.time.LocalDateTime
 
 data class TransacaoDTO(
 
-    val id: Long,
-    val codigo: String,
-    val origem: UsuarioDTO,
-    val destino: UsuarioDTO,
-    val dataHora: LocalDateTime,
-    val valor: Double,
+    val id: Long = 0,
+    val codigo: String = "",
+    val origem: UsuarioDTO = UsuarioDTO(),
+    val destino: UsuarioDTO = UsuarioDTO(),
+    val dataHora: LocalDateTime = LocalDateTime.now(),
+    val valor: Double = 0.0,
     val cartaoDeCredito: CartaoDeCredito? = null,
     val isCartaoDeCredito: Boolean = false
 

@@ -5,8 +5,8 @@ import br.com.chicorialabs.picpayclonektv2.modelo.CartaoDeCredito
 
 data class CartaoDeCreditoDTO(
 
-    val id: Long,
-    val bandeira: BandeiraCartao,
+    val id: Long = 0,
+    val bandeira: BandeiraCartao = BandeiraCartao.VISA,
     val codigoDeSeguranca: String? = null,
     val dataExpiracao: String? = null,
     val nomeTitular: String? = null,
