@@ -24,7 +24,6 @@ data class Transacao(
 
 
     fun toDto() = TransacaoDTO(
-//        id = id,
         codigo = codigo,
         origem = origem.toDto(),
         destino = destino.toDto(),

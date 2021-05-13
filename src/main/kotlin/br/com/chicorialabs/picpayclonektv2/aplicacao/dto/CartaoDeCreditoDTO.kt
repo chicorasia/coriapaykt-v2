@@ -5,7 +5,6 @@ import br.com.chicorialabs.picpayclonektv2.modelo.CartaoDeCredito
 
 data class CartaoDeCreditoDTO(
 
-//    val id: Long = 0,
     val bandeira: BandeiraCartao = BandeiraCartao.VISA,
     val codigoDeSeguranca: String? = null,
     val dataExpiracao: String? = null,
@@ -18,7 +17,6 @@ data class CartaoDeCreditoDTO(
 ) {
 
     fun toEntidade() : CartaoDeCredito = CartaoDeCredito(
-//        id = id,
         bandeira = bandeira,
         numeroToken = numeroToken,
         usuario = usuarioDTO.toEntidade()

@@ -8,7 +8,6 @@ import javax.persistence.Entity
 
 data class TransacaoDTO(
 
-//    val id: Long = 0,
     val codigo: String = "",
     var origem: UsuarioDTO = UsuarioDTO(),
     var destino: UsuarioDTO = UsuarioDTO(),
@@ -20,7 +19,6 @@ data class TransacaoDTO(
 ) {
 
     fun toEntidade() = Transacao(
-//        id = id,
         codigo = codigo,
         origem = origem.toEntidade(),
         destino = destino.toEntidade(),
