@@ -6,6 +6,7 @@ plugins {
 	kotlin("jvm") version "1.4.32"
 	kotlin("plugin.spring") version "1.4.32"
 	id("org.jetbrains.kotlin.plugin.noarg") version "1.4.32"
+	kotlin("plugin.allopen") version "1.4.32"
 }
 
 group = "br.com.chicorialabs"
@@ -14,6 +15,12 @@ java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
 	mavenCentral()
+}
+
+allOpen {
+	annotation("javax.persistence.Entity")
+	annotation("javax.persistence.Embeddable")
+	annotation("javax.persistence.MappedSuperclass")
 }
 
 dependencies {
@@ -26,6 +33,8 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 }
+
+
 
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
@@ -41,3 +50,5 @@ tasks.withType<Test> {
 noArg {
 	annotation("com.my.Annotation")
 }
+
+

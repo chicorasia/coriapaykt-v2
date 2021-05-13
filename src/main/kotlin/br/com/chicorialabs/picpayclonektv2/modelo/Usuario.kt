@@ -8,8 +8,11 @@ import java.time.LocalDate
 import javax.persistence.*
 
 @Entity
+@Embeddable
 @Table("USUARIOS")
 data class Usuario(
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) val id: Long? = -1,
     @Column val login: String = "",
     @Column val senha: String = "",
     @Column val email: String = "",
@@ -20,9 +23,12 @@ data class Usuario(
     @OneToMany val cartoesDeCredito: List<CartaoDeCredito> = arrayListOf(),
     @Column var ativo: Boolean = true,
     @Column var saldo: Double = 0.0
-    ) : EntidadeBase()
+    )
 
 {
+
+
+
     fun toDto() : UsuarioDTO = UsuarioDTO(
 //        id = id,
         login = login,

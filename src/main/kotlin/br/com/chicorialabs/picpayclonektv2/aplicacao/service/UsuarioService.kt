@@ -53,10 +53,13 @@ class UsuarioService(val usuarioRepository: UsuarioRepository) {
 		usuarioRepository.findByLogin(login).toDto()
 
 	fun listar(login: String) : List<UsuarioDTO>  =
-		usuarioRepository.findAll().map {
+		usuarioRepository.findAll().filter {
+			it.login != login
+		}.map {
 			it.toDto()
 		}
 
+	fun findByLogin(login: String): Usuario = usuarioRepository.findByLogin(login)
 
 
 }

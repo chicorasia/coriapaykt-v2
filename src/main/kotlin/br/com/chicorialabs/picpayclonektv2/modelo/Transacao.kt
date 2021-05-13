@@ -8,17 +8,20 @@ import javax.persistence.*
 @Table(name="TRANSACOES")
 data class Transacao(
 
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) val id: Long? = -1,
     @Column val codigo: String = "",
-    @ManyToOne(cascade = [CascadeType.PERSIST])
-    @JoinColumn(name = "TR_USUARIO_ORIGEM")
-    val origem: Usuario = Usuario(),
-    @ManyToOne(cascade = [CascadeType.PERSIST], fetch = FetchType.EAGER)
-    @JoinColumn(name = "TR_USUARIO_DESTINO")
-    val destino: Usuario = Usuario(),
+    @ManyToOne(cascade = [CascadeType.MERGE])
+    @JoinColumn(name = "TR_USUARIO_ORIGEM", nullable = false)
+    var origem: Usuario = Usuario(),
+    @ManyToOne(cascade = [CascadeType.MERGE], fetch = FetchType.EAGER)
+    @JoinColumn(name = "TR_USUARIO_DESTINO", nullable = false)
+    var destino: Usuario = Usuario(),
     @Column val dataHora: LocalDateTime = LocalDateTime.now(),
     @Column val valor: Double = 0.0
 
-) : EntidadeBase() {
+) {
+
+
 
     fun toDto() = TransacaoDTO(
 //        id = id,

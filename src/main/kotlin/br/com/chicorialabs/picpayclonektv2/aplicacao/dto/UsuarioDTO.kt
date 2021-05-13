@@ -2,6 +2,7 @@ package br.com.chicorialabs.picpayclonektv2.aplicacao.dto
 
 import br.com.chicorialabs.picpayclonektv2.modelo.Usuario
 import java.time.LocalDate
+import javax.persistence.Entity
 
 data class UsuarioDTO(
 //    val id: Long = 0,

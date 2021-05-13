@@ -26,8 +26,14 @@ class TransacaoService(
     }
 
     fun salvar(transacaoDTO: TransacaoDTO) : Transacao {
+        val usuarioOrigem = usuarioService.findByLogin(transacaoDTO.origem.login)
+        val usuarioDestino = usuarioService.findByLogin(transacaoDTO.destino.login)
         val transacao = transacaoDTO.toEntidade()
-//        usuarioService.validar(transacao.destino, transacao.origem)
+        transacao.apply {
+            origem = usuarioOrigem
+            destino = usuarioDestino
+        }
+        usuarioService.validar(transacao.destino, transacao.origem)
         return transacaoRepository.save(transacao)
     }
 

@@ -8,11 +8,14 @@ import javax.persistence.*
 data class CartaoDeCredito(
 
 //    @Id @GeneratedValue val id: Long,
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) val id: Long? = -1,
     @Enumerated(EnumType.STRING)
     @Column val bandeira: BandeiraCartao = BandeiraCartao.VISA,
     @Column val numeroToken: String = "",
     @ManyToOne val usuario: Usuario = Usuario()
-) : EntidadeBase() {
+) {
+
 
     fun toDto() : CartaoDeCreditoDTO = CartaoDeCreditoDTO(
 //        id = id,

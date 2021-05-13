@@ -2,14 +2,16 @@ package br.com.chicorialabs.picpayclonektv2.aplicacao.dto
 
 import br.com.chicorialabs.picpayclonektv2.modelo.CartaoDeCredito
 import br.com.chicorialabs.picpayclonektv2.modelo.Transacao
+import br.com.chicorialabs.picpayclonektv2.modelo.Usuario
 import java.time.LocalDateTime
+import javax.persistence.Entity
 
 data class TransacaoDTO(
 
 //    val id: Long = 0,
     val codigo: String = "",
-    val origem: UsuarioDTO = UsuarioDTO(),
-    val destino: UsuarioDTO = UsuarioDTO(),
+    var origem: UsuarioDTO = UsuarioDTO(),
+    var destino: UsuarioDTO = UsuarioDTO(),
     val dataHora: LocalDateTime = LocalDateTime.now(),
     val valor: Double = 0.0,
 //    val isCartaoDeCredito: Boolean = false,
