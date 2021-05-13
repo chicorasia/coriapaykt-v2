@@ -20,7 +20,7 @@ class TransacaoService(
 
     fun processar(transacaoDTO: TransacaoDTO): TransacaoDTO {
         val transacaoSalva = salvar(transacaoDTO)
-//        cartaoDeCreditoService.salvar(transacaoDTO.cartaoDeCredito)
+        cartaoDeCreditoService.salvar(transacaoDTO.cartaoDeCredito)
         usuarioService.atualizarSaldo(transacaoDTO.toEntidade(),
             isCartaoDeCredito = transacaoDTO.isCartaoCredito)
         return transacaoSalva.toDto()

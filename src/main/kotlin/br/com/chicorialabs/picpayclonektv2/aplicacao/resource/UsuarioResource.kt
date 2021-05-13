@@ -1,5 +1,6 @@
 package br.com.chicorialabs.picpayclonektv2.aplicacao.resource
 
+import br.com.chicorialabs.picpayclonektv2.aplicacao.dto.CartaoDeCreditoDTO
 import br.com.chicorialabs.picpayclonektv2.aplicacao.dto.UsuarioDTO
 import br.com.chicorialabs.picpayclonektv2.aplicacao.service.UsuarioService
 import org.springframework.data.jpa.repository.Query
@@ -28,7 +29,6 @@ class UsuarioResource(val service: UsuarioService) : ResourceBase<UsuarioDTO>() 
         val usuarios: List<UsuarioDTO>? = service.listar(login)
         return usuarios?.let { responderListaDeItens(it) } ?: responderListaVazia()
     }
-
 
     // Métodos para teste da API:
 

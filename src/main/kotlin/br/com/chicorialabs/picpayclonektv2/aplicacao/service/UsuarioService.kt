@@ -1,5 +1,6 @@
 package br.com.chicorialabs.picpayclonektv2.aplicacao.service
 
+import br.com.chicorialabs.picpayclonektv2.aplicacao.dto.CartaoDeCreditoDTO
 import br.com.chicorialabs.picpayclonektv2.aplicacao.dto.UsuarioDTO
 import br.com.chicorialabs.picpayclonektv2.infraestrutura.UsuarioRepository
 import br.com.chicorialabs.picpayclonektv2.modelo.Transacao
@@ -18,13 +19,6 @@ class UsuarioService(val usuarioRepository: UsuarioRepository) {
 	fun postUsuario(usuario: Usuario) {
 		usuarioRepository.save(usuario)
 	}
-
-	fun saldoDoUsuario(login: String): Double {
-		val usuario : Usuario? = usuarioRepository.findByLogin(login)
-		return usuario?.saldo ?: 0.0
-	}
-
-	fun findUsuario(id: Long): Usuario? = usuarioRepository.findByIdOrNull(id)
 
 	fun validar(vararg usuario: Usuario?) {
 		usuario.forEach {
