@@ -14,7 +14,7 @@ data class TransacaoDTO(
     var destino: UsuarioDTO = UsuarioDTO(),
     val dataHora: LocalDateTime = LocalDateTime.now(),
     val valor: Double = 0.0,
-//    val isCartaoDeCredito: Boolean = false,
+    val isCartaoCredito: Boolean = false,
     val cartaoDeCredito: CartaoDeCredito? = null
 
 ) {
