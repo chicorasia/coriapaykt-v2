@@ -18,9 +18,9 @@ class TransacaoResource(
 
 //    TODO: adicionar o login como filtro das transações
     @GetMapping
-    fun listar(@PageableDefault(page = 0, size = 20) paginacao: Pageable)
+    fun listar(@PageableDefault(page = 0, size = 20) paginacao: Pageable, @RequestParam login: String)
             : ResponseEntity<Page<TransacaoDTO>>? {
-        val transacoes: Page<TransacaoDTO>? = service.listar(paginacao)
+        val transacoes: Page<TransacaoDTO>? = service.listar(paginacao, login)
         return transacoes?.let { responderListaDeItensPaginada(transacoes) }
     }
 

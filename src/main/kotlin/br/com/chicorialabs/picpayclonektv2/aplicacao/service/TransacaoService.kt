@@ -14,8 +14,8 @@ class TransacaoService(
     val usuarioService: UsuarioService
 ) {
 
-    fun listar(paginacao: Pageable): Page<TransacaoDTO> = transacaoRepository
-        .findAll(paginacao).converterParaPageDTO()
+    fun listar(paginacao: Pageable, loginUsuario: String): Page<TransacaoDTO> = transacaoRepository
+        .findByOrigem_LoginOrDestino_Login(loginUsuario, loginUsuario, paginacao).converterParaPageDTO()
 
 
     fun processar(transacaoDTO: TransacaoDTO): TransacaoDTO {

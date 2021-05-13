@@ -9,4 +9,12 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.repository.PagingAndSortingRepository
 
 interface TransacaoRepository : PagingAndSortingRepository<Transacao, Long> {
+
+    fun findByOrigem_LoginOrDestino_Login(
+        loginUsuario: String,
+        loginUsuario1: String,
+        paginacao: Pageable
+    ): Page<Transacao>
+
+
 }
