@@ -2,10 +2,13 @@
 
 Clone da API RestFull PicPay desenvolvida em Kotlin empregando as seguintes tecnologias:
 
+- 100% Kotlin
 - Springboot
-- Linguagem Kotlin
-- Organização da aplicação conforme princípios de Clean Architecture
+- Spring data JDBC  
 - Jpa e Hibernate
+- PostgreSQL
+- Database H2 para testes
+- Organização da aplicação conforme princípios de Clean Architecture
 
 ****
 
