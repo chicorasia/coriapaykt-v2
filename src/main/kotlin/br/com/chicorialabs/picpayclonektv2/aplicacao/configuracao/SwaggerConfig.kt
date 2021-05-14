@@ -1,4 +1,4 @@
-package br.com.chicorialabs.picpayclonektv2.aplicacao.swagger
+package br.com.chicorialabs.picpayclonektv2.aplicacao.configuracao
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
@@ -19,7 +19,8 @@ class SwaggerConfig {
     fun createRestApi() : Docket {
         return Docket(DocumentationType.SWAGGER_2)
             .select()
-            .apis(RequestHandlerSelectors.any())
+            .apis(RequestHandlerSelectors
+                .basePackage("br.com.chicorialabs.picpayclonektv2.aplicacao.resource"))
             .paths(PathSelectors.any())
             .build()
 
