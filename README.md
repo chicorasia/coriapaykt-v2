@@ -13,7 +13,7 @@
 
 ***
 
-:earth_africa: Essa API é consumida pelo app: https://github.com/chicorasia/picpayclonekt-app :o
+:earth_africa: Essa API é consumida pelo app: https://github.com/chicorasia/picpayclonekt-app
 
 ***
 
