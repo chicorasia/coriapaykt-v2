@@ -1,6 +1,6 @@
-# PicPayClone-Kt v2 by Chico Rasia
+# PicPayClone-Kt v2 by Chico Rasia :euro::money_with_wings::heavy_dollar_sign:
 
-Clone da API RestFull PicPay desenvolvida em Kotlin empregando as seguintes tecnologias:
+##### Clone da API RESTful PicPay desenvolvida em Kotlin empregando as seguintes tecnologias:
 
 - 100% Kotlin
 - Springboot
@@ -8,10 +8,17 @@ Clone da API RestFull PicPay desenvolvida em Kotlin empregando as seguintes tecn
 - Jpa e Hibernate
 - PostgreSQL
 - Database H2 para testes
+- Documentação da API com Swagger  
 - Organizado conforme princípios de Clean Architecture
 
+***
+
+:earth_africa: Essa API é consumida pelo app: https://github.com/chicorasia/picpayclonekt-app :o
+
+***
 
 ![pgAdmin screenshot with overlaid app](Screenshot_01.jpg)
+
 ****
 
 :green_heart: everis Kotlin Bootcamp Digital Innovation One 2021
