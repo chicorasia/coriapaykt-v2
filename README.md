@@ -12,6 +12,9 @@
 - Organizado conforme princípios de Clean Architecture
 
 ***
+:vhs:[Vídeo do projeto no youtube](https://youtu.be/PEC3uptb9EA)
+
+***
 
 :earth_africa: Essa API é consumida pelo app: https://github.com/chicorasia/picpayclonekt-app
 
