@@ -3,6 +3,7 @@ package br.com.chicorialabs.picpayclonektv2.aplicacao.resource
 import br.com.chicorialabs.picpayclonektv2.aplicacao.dto.CartaoDeCreditoDTO
 import br.com.chicorialabs.picpayclonektv2.aplicacao.dto.UsuarioDTO
 import br.com.chicorialabs.picpayclonektv2.aplicacao.service.UsuarioService
+import io.swagger.annotations.Api
 import org.springframework.data.jpa.repository.Query
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*

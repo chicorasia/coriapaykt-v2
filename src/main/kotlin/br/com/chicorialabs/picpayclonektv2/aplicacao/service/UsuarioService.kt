@@ -5,6 +5,7 @@ import br.com.chicorialabs.picpayclonektv2.aplicacao.dto.UsuarioDTO
 import br.com.chicorialabs.picpayclonektv2.infraestrutura.UsuarioRepository
 import br.com.chicorialabs.picpayclonektv2.modelo.Transacao
 import br.com.chicorialabs.picpayclonektv2.modelo.Usuario
+import io.swagger.annotations.Api
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import kotlin.streams.toList
