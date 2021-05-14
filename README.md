@@ -8,8 +8,10 @@ Clone da API RestFull PicPay desenvolvida em Kotlin empregando as seguintes tecn
 - Jpa e Hibernate
 - PostgreSQL
 - Database H2 para testes
-- Organização da aplicação conforme princípios de Clean Architecture
+- Organizado conforme princípios de Clean Architecture
 
+
+![pgAdmin screenshot with overlaid app](Screenshot_01.jpg)
 ****
 
 :green_heart: everis Kotlin Bootcamp Digital Innovation One 2021
