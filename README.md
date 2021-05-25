@@ -1,6 +1,6 @@
 # PicPayClone-Kt v2 by Chico Rasia :euro::money_with_wings::heavy_dollar_sign:
 
-##### Clone da API RESTful PicPay desenvolvida em Kotlin empregando as seguintes tecnologias:
+##### Clone da API RESTful de sistema de pagamentos desenvolvida em Kotlin empregando as seguintes tecnologias:
 
 - 100% Kotlin
 - Springboot
