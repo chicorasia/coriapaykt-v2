@@ -1,4 +1,4 @@
-# PicPayClone-Kt v2 by Chico Rasia :euro::money_with_wings::heavy_dollar_sign:
+# CoriaPay-Kt v2 by Chico Rasia :euro::money_with_wings::heavy_dollar_sign:
 
 ##### Clone da API RESTful de sistema de pagamentos desenvolvida em Kotlin empregando as seguintes tecnologias:
 
@@ -16,7 +16,7 @@
 
 ***
 
-:earth_africa: Essa API é consumida pelo app: https://github.com/chicorasia/picpayclonekt-app
+:earth_africa: Essa API é consumida pelo app: https://github.com/chicorasia/coriapay-app
 
 ***
 
